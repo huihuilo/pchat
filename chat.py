@@ -168,7 +168,7 @@ class Server(object):
                     self.close_chat(chat, address)  # 退出微信后清除登录信息
                     break
                 if message['event_type'] == '6':  # 推送消息（个人，公众号，订阅号等）
-                    self.client_pool.submit(chat.receiver, message)
+                    chat.receiver(message)
                 elif message['event_type'] == '5':  # 通讯录信息
                     self.save_contacts_to_chat(message, chat)
                 elif message['event_type'] == '2':  # 退出微信
@@ -273,10 +273,4 @@ class BaseChat(object):
 
 
 if __name__ == '__main__':
-
-    server = Server(3, dump_chat=True)
-    chat = BaseChat(wx_nickname='Python开发')
-    server.bind(chat)
-    chat = BaseChat(wx_nickname='没有名字')
-    server.bind(chat)
-    server.run()
+    pass

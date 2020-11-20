@@ -132,7 +132,4 @@ def send_file(recv_wxid, path, wx_id=None, wx_nickname=None):
 
 
 if __name__ == '__main__':
-    logger.info('info: 这是有颜色的文字')
-    logger.debug('debug: 这是有颜色的文字')
-    logger.warn('warn: 这是有颜色的文字')
-    logger.error('error: 这是有颜色的文字')
+    pass
